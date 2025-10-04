@@ -4,55 +4,256 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>PocketSommelier | Discover the Perfect Wine for Every Meal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
-body { margin: 0; font-family: Arial, sans-serif; line-height: 1.6; background-color: #fafafa; color: #333; }
-header { background-image: url('https://images.unsplash.com/photo-1512428559087-560fa5ceab42?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb'); background-size: cover; background-position: center; padding: 80px 20px; text-align: center; color: #fff; }
-header h1 { font-size: 2.5rem; margin: 0; }
-header p { font-size: 1.2rem; max-width: 600px; margin: 20px auto; }
-.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
-.features { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 40px; }
-.feature { flex: 1 1 300px; background: #fff; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); padding: 20px; }
-.feature h3 { margin-top: 0; }
-.cta { text-align: center; margin-top: 40px; }
-.cta a { display: inline-block; padding: 12px 24px; margin: 10px; border-radius: 4px; text-decoration: none; color: #fff; background-color: #6a1b9a; font-weight: bold; }
-section { margin: 40px 0; }
-section h2 { font-size: 2rem; margin-bottom: 20px; text-align: center; }
-.how-it-works ol { list-style: decimal inside; padding-left: 0; }
-.how-it-works li { margin: 10px 0; }
-.testimonials blockquote { border-left: 4px solid #6a1b9a; margin: 20px 0; padding-left: 20px; font-style: italic; }
-footer { text-align: center; margin-top: 40px; padding: 20px; font-size: 0.9rem; color: #666; }
-@media (max-width: 600px) {
-  header h1 { font-size: 1.8rem; }
-  .features { flex-direction: column; }
+* { box-sizing: border-box; }
+body { 
+  margin: 0; 
+  font-family: 'Lato', sans-serif; 
+  line-height: 1.8; 
+  background-color: #0a0a0a; 
+  color: #e8e8e8; 
+}
+header { 
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('https://github.com/user-attachments/assets/2eaa1203-1985-4c9e-9bec-9d69cb4ac286'); 
+  background-size: cover; 
+  background-position: center; 
+  padding: 120px 20px; 
+  text-align: center; 
+  color: #fff; 
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(10,10,10,0.1) 0%, rgba(10,10,10,0.8) 100%);
+  z-index: 1;
+}
+header > * {
+  position: relative;
+  z-index: 2;
+}
+header h1 { 
+  font-family: 'Playfair Display', serif; 
+  font-size: 3.5rem; 
+  margin: 0 0 20px 0; 
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-shadow: 2px 4px 8px rgba(0,0,0,0.6);
+}
+header p { 
+  font-size: 1.3rem; 
+  max-width: 700px; 
+  margin: 20px auto 40px; 
+  font-weight: 300;
+  line-height: 1.9;
+  text-shadow: 1px 2px 4px rgba(0,0,0,0.5);
+}
+.container { max-width: 1200px; margin: 0 auto; padding: 60px 20px; }
+.features { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+  gap: 30px; 
+  margin-top: 60px; 
+}
+.feature { 
+  background: linear-gradient(145deg, #1a1a1a 0%, #121212 100%); 
+  border-radius: 12px; 
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4); 
+  padding: 40px 30px; 
+  border: 1px solid #2a2a2a;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.feature:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 32px rgba(212,175,55,0.2);
+  border-color: #d4af37;
+}
+.feature h3 { 
+  margin-top: 0; 
+  font-family: 'Playfair Display', serif; 
+  font-size: 1.5rem; 
+  color: #d4af37;
+  margin-bottom: 15px;
+}
+.feature p {
+  color: #c8c8c8;
+  font-size: 1rem;
+}
+.cta { text-align: center; margin-top: 50px; }
+.cta a { 
+  display: inline-block; 
+  padding: 16px 40px; 
+  margin: 10px; 
+  border-radius: 50px; 
+  text-decoration: none; 
+  color: #0a0a0a; 
+  background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
+  font-weight: 700; 
+  font-size: 1.1rem;
+  box-shadow: 0 6px 20px rgba(212,175,55,0.3);
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.cta a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(212,175,55,0.5);
+  background: linear-gradient(135deg, #f4d03f 0%, #d4af37 100%);
+}
+section { margin: 80px 0; }
+section h2 { 
+  font-family: 'Playfair Display', serif; 
+  font-size: 2.8rem; 
+  margin-bottom: 30px; 
+  text-align: center; 
+  color: #d4af37;
+  font-weight: 600;
+}
+.how-it-works { 
+  background: linear-gradient(145deg, #1a1a1a 0%, #121212 100%); 
+  padding: 60px 40px; 
+  border-radius: 12px;
+  border: 1px solid #2a2a2a;
+}
+.how-it-works ol { 
+  list-style: none; 
+  padding-left: 0; 
+  max-width: 700px;
+  margin: 40px auto;
+  counter-reset: steps;
+}
+.how-it-works li { 
+  margin: 25px 0; 
+  padding-left: 60px;
+  position: relative;
+  font-size: 1.15rem;
+  color: #c8c8c8;
+}
+.how-it-works li::before {
+  counter-increment: steps;
+  content: counter(steps);
+  position: absolute;
+  left: 0;
+  top: -5px;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #0a0a0a;
+  font-size: 1.2rem;
+}
+.how-it-works img {
+  margin-top: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+.expert {
+  text-align: center;
+  padding: 40px;
+}
+.expert p {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  color: #c8c8c8;
+  line-height: 2;
+}
+.testimonials { 
+  background: linear-gradient(145deg, #1a1a1a 0%, #121212 100%); 
+  padding: 60px 40px; 
+  border-radius: 12px;
+  border: 1px solid #2a2a2a;
+}
+.testimonials blockquote { 
+  border-left: 4px solid #d4af37; 
+  margin: 30px auto; 
+  padding-left: 30px; 
+  font-style: italic; 
+  color: #c8c8c8;
+  font-size: 1.15rem;
+  max-width: 800px;
+  line-height: 1.9;
+}
+.contact {
+  text-align: center;
+  padding: 20px;
+}
+.contact a {
+  color: #d4af37;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+.contact a:hover {
+  color: #f4d03f;
+}
+footer { 
+  text-align: center; 
+  margin-top: 80px; 
+  padding: 40px 20px; 
+  font-size: 0.95rem; 
+  color: #888; 
+  border-top: 1px solid #2a2a2a;
+}
+@media (max-width: 768px) {
+  header { padding: 80px 20px; min-height: 60vh; }
+  header h1 { font-size: 2.5rem; }
+  header p { font-size: 1.1rem; }
+  section h2 { font-size: 2.2rem; }
+  .features { grid-template-columns: 1fr; }
+  .how-it-works, .testimonials { padding: 40px 25px; }
+  .cta a { padding: 14px 30px; font-size: 1rem; }
+}
+@media (max-width: 480px) {
+  header h1 { font-size: 2rem; }
+  header p { font-size: 1rem; }
+  section h2 { font-size: 1.8rem; }
 }
 </style>
 </head>
 <body>
 <header>
-      <h1>Sommelier In Your Pocket</h1>
-  <p>PocketSommelier is an elegant, intuitive app that helps you find the perfect wine pairing for any dish. Whether you're a wine enthusiast or a curious beginner, our AI‑powered recommendations will enhance your dining experience.</p>
-  <div class="cta">
-    <a href="#download">Download for iOS</a>
-    <a href="#download">Download for Android</a>
+  <div>
+    <h1>Sommelier In Your Pocket</h1>
+    <p>Elevate your dining experience with expertly curated wine pairings. Our AI-powered sommelier delivers professional recommendations at your fingertips, transforming every meal into a memorable occasion.</p>
+    <div class="cta">
+      <a href="#download">Download for iOS</a>
+      <a href="#download">Download for Android</a>
+    </div>
   </div>
 </header>
 <div class="container">
   <section class="features">
     <div class="feature">
-      <h3>AI‑Powered Pairings</h3>
-      <p>Get intelligent wine recommendations based on your meal and personal taste.</p>
+      <h3>AI-Powered Pairings</h3>
+      <p>Receive intelligent wine recommendations tailored to your meal and refined to your personal taste preferences.</p>
     </div>
     <div class="feature">
       <h3>Extensive Wine Database</h3>
-      <p>Browse wines from around the world with detailed flavor profiles and tasting notes.</p>
+      <p>Explore an extensive collection of wines from prestigious vineyards worldwide, complete with detailed flavor profiles and expert tasting notes.</p>
     </div>
     <div class="feature">
       <h3>Save Your Favorites</h3>
-      <p>Keep track of your favorite pairings and build your wine knowledge.</p>
+      <p>Curate your personal collection of exceptional pairings and build your wine expertise over time.</p>
     </div>
     <div class="feature">
       <h3>Learn About Wine</h3>
-      <p>Discover wine regions and grape varieties with our educational content.</p>
+      <p>Deepen your knowledge of renowned wine regions, distinguished grape varieties, and the art of wine appreciation.</p>
     </div>
   </section>
   <section class="how-it-works">
@@ -67,15 +268,15 @@ footer { text-align: center; margin-top: 40px; padding: 20px; font-size: 0.9rem;
   </section>
   <section class="expert">
     <h2>Expert Recommendations</h2>
-    <p>Our algorithm was developed with input from professional sommeliers and wine experts to ensure accurate, high‑quality recommendations for any cuisine.</p>
+    <p>Our sophisticated algorithm has been meticulously developed in collaboration with professional sommeliers and wine connoisseurs to ensure exceptional, high-quality recommendations for every cuisine and occasion.</p>
   </section>
   <section class="testimonials">
-    <h2>What Users Are Saying</h2>
+    <h2>What Our Clients Are Saying</h2>
     <blockquote>
-      "Sommelier has completely changed how I approach wine selection. I've discovered so many wonderful pairings I would never have tried!"
+      "PocketSommelier has completely transformed my approach to wine selection. I've discovered extraordinary pairings that have elevated every dining experience."
     </blockquote>
     <blockquote>
-      "As someone who knows nothing about wine, this app is a lifesaver when hosting dinner parties. My guests always think I'm a wine expert now!"
+      "As someone new to the world of wine, this app has been invaluable when hosting dinner parties. My guests are consistently impressed by my selections."
     </blockquote>
   </section>
   <section class="contact">
